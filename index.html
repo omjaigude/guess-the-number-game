@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guess The Number Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>🎯 Guess the Number</h1>
+
+    <button id="themeToggleBtn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+
+    <label for="rangeSelect">Select Range:</label>
+    <select id="rangeSelect" onchange="startGame()">
+      <option value="10">1 - 10</option>
+      <option value="50">1 - 50</option>
+      <option value="100" selected>1 - 100</option>
+    </select>
+
+    <br /><br />
+
+    <label for="modeSelect">Select Game Mode:</label>
+    <select id="modeSelect" onchange="startGame()">
+      <option value="type">Type the Number (Unlimited Tries)</option>
+      <option value="choice">Choose From Options (2 Tries)</option>
+    </select>
+
+    <div class="card" id="typeInput">
+      <input type="number" id="guessInput" placeholder="Enter a number" />
+      <button onclick="submitGuess()">Guess</button>
+    </div>
+
+    <div class="card button-options" id="choiceButtons" style="display: none;"></div>
+
+    <div id="popup" class="popup-message"></div>
+
+    <div class="message" id="message"></div>
+    <div class="scoreboard">
+      Wins: <span id="winCount">0</span> | Tries: <span id="triesCount">0</span>
+    </div>
+
+    <button id="restartBtn" onclick="startGame()">Restart</button>
+
+    <div class="history" id="historyBox">
+      <strong>History:</strong>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
